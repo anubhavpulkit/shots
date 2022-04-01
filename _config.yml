@@ -3,20 +3,20 @@ image_fulls_loc: "/images/fulls"
 image_thumbs_loc: "/images/thumbs"
 
 # UI configs
-title: "Photography by Devesh Sangwan"
-subtitle: "See the world through my eyes!"
-author:  "Devesh Sangwan"
+title: "Photography by Anubhav Singh"
+subtitle: "See the world through experience!!"
+author:  "Anubhav Singh"
 header:
  title: "Photography"
- subtitle: "by Devesh Sangwan"
+ subtitle: "by Anubhav Singh"
 footer:
- name: "Hey there, I am Devesh Sangwan "
- bio: "a pre-final year computer engineering student at the Netaji Subhas University of Technology, New Delhi."
+ name: "Hey there, I am Anubhav Singh "
+ bio: "a final year computer engineering student at the SMVD University, J&K."
 social_urls:
-  twitter: "https://twitter.com/sangwan2001"
-  instagram: "https://www.instagram.com/devesh.sangwan/"
-  linkedin: "https://www.linkedin.com/in/devesh-sangwan-4a6646165/"
-  github: "https://github.com/deveshsangwan"
+  twitter: "https://twitter.com/anubhavpulkit"
+  instagram: "https://www.instagram.com/soloe_xperience/"
+  linkedin: "https://www.linkedin.com/in/anubhavpulkit"
+  github: "https://github.com/anubhavpulkit"
 
 
 theme: jekyll-theme-slate
