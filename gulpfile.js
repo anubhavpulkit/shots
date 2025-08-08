@@ -35,7 +35,7 @@ const del = require('del');
 // });
 
 gulp.task("resize", function () {
-  return gulp.src('images/originals/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}') // change folder path if needed
+  return gulp.src('images/fulls/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}') // change folder path if needed
     .pipe(through2.obj(function (file, _, cb) {
       if (file.isBuffer()) {
         sharp(file.contents)
@@ -51,7 +51,7 @@ gulp.task("resize", function () {
       }
     }))
     .pipe(rename({ suffix: "-thumb" }))
-    .pipe(gulp.dest("thumbs"));
+    .pipe(gulp.dest("images/thumbs"));
 });
 
 // Delete original files (optional — careful!)
