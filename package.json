@@ -29,8 +29,13 @@
     "del": "^2.2.2",
     "gulp": "^4.0.2",
     "gulp-image-resize": "^0.13.1",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^5.1.0",
-    "gulp-uglify": "^3.0.0"
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "gulp-sharp-responsive": "^0.4.1",
+    "sass": "^1.90.0",
+    "sharp": "^0.34.3"
   }
 }
