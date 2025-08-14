@@ -10,12 +10,45 @@ const sharp = require("sharp");
 const through2 = require("through2");
 
 
+// gulp.task("resize", function () {
+//   return gulp.src('images/fulls/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}')
+//     .pipe(through2.obj(function (file, _, cb) {
+//       if (file.isBuffer()) {
+//         sharp(file.contents)
+//           .resize(300)
+//           .toBuffer()
+//           .then(data => {
+//             file.contents = data;
+//             cb(null, file);
+//           })
+//           .catch(err => cb(err));
+//       } else {
+//         cb(null, file);
+//       }
+//     }))
+//     .pipe(rename({ suffix: "-thumb" }))
+//     .pipe(gulp.dest("images/thumbs"));
+// });
+
 gulp.task("resize", function () {
-  return gulp.src('images/fulls/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}')
+  return gulp.src("images/fulls/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}")
     .pipe(through2.obj(function (file, _, cb) {
       if (file.isBuffer()) {
-        sharp(file.contents)
-          .resize(300)
+        const ext = file.extname?.toLowerCase() || file.path.split('.').pop().toLowerCase();
+
+        let image = sharp(file.contents)
+          .resize(300, null, {
+            fit: "inside",
+            withoutEnlargement: true
+          });
+
+        if (ext === "jpg" || ext === "jpeg") {
+          image = image.jpeg({ quality: 90, mozjpeg: true });
+        } else if (ext === "png") {
+          image = image.png({ compressionLevel: 6 });
+        }
+
+        image
           .toBuffer()
           .then(data => {
             file.contents = data;
@@ -29,6 +62,7 @@ gulp.task("resize", function () {
     .pipe(rename({ suffix: "-thumb" }))
     .pipe(gulp.dest("images/thumbs"));
 });
+
 
 // Delete original files (optional — careful!)
 gulp.task('clean-originals', function () {
