@@ -1,41 +1,20 @@
 'use strict';
 
-// const gulp = require('gulp');
-// const sharpResponsive = require('gulp-sharp-responsive');
-// const sass = require('gulp-sass')(require('sass'));
-// const uglify = require('gulp-uglify');
-// const rename = require('gulp-rename');
-// const del = require('del');
+const gulp = require('gulp');
+const sharpResponsive = require('gulp-sharp-responsive');
+const sass = require('gulp-sass')(require('sass'));
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const del = require('del');
 
 const gulp = require("gulp");
 const sharp = require("sharp");
 const rename = require("gulp-rename");
 const through2 = require("through2");
-const del = require('del');
-
-// Resize images using sharp
-// gulp.task('resize', function () {
-//     return gulp.src('images/*.{jpg,png,jpeg}')
-//         // Save full-size images
-//         .pipe(sharpResponsive({
-//             formats: [
-//                 {
-//                     width: 1024,
-//                     format: null, // keep original format
-//                     rename: { dirname: 'fulls' }
-//                 },
-//                 {
-//                     width: 512,
-//                     format: null, // keep original format
-//                     rename: { dirname: 'thumbs' }
-//                 }
-//             ]
-//         }))
-//         .pipe(gulp.dest('images/'));
-// });
+const del = require("del");
 
 gulp.task("resize", function () {
-  return gulp.src('images/fulls/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}') // change folder path if needed
+  return gulp.src('images/fulls/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}')
     .pipe(through2.obj(function (file, _, cb) {
       if (file.isBuffer()) {
         sharp(file.contents)
