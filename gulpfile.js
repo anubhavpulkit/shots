@@ -1,17 +1,14 @@
 'use strict';
 
-const gulp = require('gulp');
-const sharpResponsive = require('gulp-sharp-responsive');
-const sass = require('gulp-sass')(require('sass'));
-const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
-const del = require('del');
-
 const gulp = require("gulp");
-const sharp = require("sharp");
+const sharpResponsive = require("gulp-sharp-responsive");
+const sass = require("gulp-sass")(require("sass"));
+const uglify = require("gulp-uglify");
 const rename = require("gulp-rename");
-const through2 = require("through2");
 const del = require("del");
+const sharp = require("sharp");
+const through2 = require("through2");
+
 
 gulp.task("resize", function () {
   return gulp.src('images/fulls/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}')
